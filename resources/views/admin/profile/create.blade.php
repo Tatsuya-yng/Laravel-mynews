@@ -15,7 +15,7 @@
             </div>
         </div>
 
-   <form action="{{ action('Admin\NewsController@create') }}" method="post" enctype="multipart/form-data">
+   <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
                         <ul>
@@ -24,28 +24,11 @@
                             @endforeach
                         </ul>
                     @endif
-                    <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2">本文</label>
-                        <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2">画像</label>
-                        <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="image">
-                        </div>
-                    </div>
+
                     <div class="form group row">
                       <label class="col-md-2">氏名</label>
                       <div class="col-md-10">
-                        <input type="text" id="name" name="name">
+                        <input type="text" id="name" name="name" value="{{ old('name') }}">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -58,13 +41,13 @@
                     <div class="form-group row">
                         <label class="col-md-2">趣味</label>
                         <div class="col-md-10">
-                    　　<input type="text" id="hobby" name="hobby">
+                    　　<input type="text" id="hobby" name="hobby" value="{{ old('hobby') }}">
                      </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">自己紹介欄</label>
                         <div class="col-md-10">
-                        <input type="text" id="introduction" name="introduction">
+                        <input type="text" id="introduction" name="introduction" value="{{ old('introduction') }}">
                      </div>
                     </div>
                     

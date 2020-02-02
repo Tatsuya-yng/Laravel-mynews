@@ -15,15 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-    Route::get('news/create', 'Admin\NewsController@add');
-    Route::post('news/create', 'Admin\NewsController@create');
     //
     Route::get('profile/create', 'Admin\ProfileController@add');
     Route::post('profile/create', 'Admin\ProfileController@create');
     Route::get('profile/edit', 'Admin\ProfileController@edit');
-
-
+    
+   
+    Route::get('news/create', 'Admin\NewsController@add');
+    Route::post('news/create', 'Admin\NewsController@create');
+    Route::get('news', 'Admin\NewsController@index'); // 追記
+    Route::get('news/edit', 'Admin\NewsController@edit'); // 追記
+    Route::post('news/edit', 'Admin\NewsController@update'); // 追記
+    Route::get('news/delete', 'Admin\NewsController@delete');
 });
+
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

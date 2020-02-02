@@ -8,7 +8,7 @@
                 <h2>ニュース新規作成</h2>
                 <form action="{{ action('Admin\NewsController@create') }}" method="post" enctype="multipart/form-data">
 
- // 以下を追記
+
 
                     @if (count($errors) > 0)
                         <ul>

@@ -15,33 +15,21 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">氏名</label>
+                        <label class="col-md-2" for="title">タイトル</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="name" value="{{ $news_form->title }}">
+                            <input type="text" class="form-control" name="title" value="{{ $news_form->title }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">性別</label>
-                    <div class="col-md-10">
-                        <input type="radio" name="性別" value="男" /> 男　
-　　　　　　　　　　　　<input type="radio" name="性別" value="女" /> 女
-                    </div>
+                        <label class="col-md-2" for="body">本文</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" name="body" rows="20">{{ $news_form->body }}</textarea>
+                        </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-md-2" for="image">画像</label>
                         <div class="col-md-10">
-                              <label class="col-md-2">趣味</label>
-                        <div class="col-md-10">
-                    　　<input type="text" id="hobby" name="hobby" value="{{ old('hobby') }}">
-                    </div>
-                    </div>
-                         <div class="form-group row">
-                        <label class="col-md-2">自己紹介欄</label>
-                        <div class="col-md-10">
-                        <input type="text" id="introduction" name="introduction" value="{{ old('introduction') }}">
-                     </div>
-                    </div>
-                    　　
-                    　　
+                            <input type="file" class="form-control-file" name="image">
                             <div class="form-text text-info">
                                 設定中: {{ $news_form->image_path }}
                             </div>
@@ -60,7 +48,28 @@
                         </div>
                     </div>
                 </form>
+                {{-- 以下を追記　--}}
+                <div class="row mt-5">
+                    <div class="col-md-4 mx-auto">
+                        <h2>編集履歴</h2>
+                        <ul class="list-group">
+                            @if ($news_form->histories != NULL)
+                                @foreach ($news_form->histories as $history)
+                                    <li class="list-group-item">{{ $history->edited_at }}</li>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 @endsection
+
+
+
+
+
+
+
+

@@ -3,11 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class NewsController extends Controller
-{
-    //
-}
 use App\News;
 
 class NewsController extends Controller
